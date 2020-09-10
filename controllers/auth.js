@@ -22,7 +22,7 @@ const createUser = async (req, res = response) => {
     const token = await generateJWT(user.id);
     res.json({
       ok: true,
-      msg: user,
+      user: user,
       token,
     });
   } catch (error) {
@@ -49,10 +49,10 @@ const login = async (req, res = response) => {
     }
 
     // Generate JWT
-    const token = await generateJWT(userDB.uid);
+    const token = await generateJWT(userDB.id);
     res.json({
       ok: true,
-      msg: userDB,
+      user: userDB,
       token,
     });
   } catch (error) {
@@ -73,7 +73,7 @@ const renewToken = async (req, res = response) => {
 
   res.json({
     ok: true,
-    msg: user,
+    user: user,
     token,
   });
 };
