@@ -12,24 +12,22 @@ const { validateJWT } = require("../middlewares/validate-jwt");
 const router = Router();
 
 router.post(
-  "/new",
-  [
-    check("name", "Named needed").not().isEmpty(),
-    check("email", "Email needed").isEmail(),
-    check("password", "Password needed").not().isEmpty(),
-    validateField,
-  ],
-  createUser
+    "/new", [
+        check("name", "Named needed").not().isEmpty(),
+        check("email", "Email needed").isEmail(),
+        check("password", "Password needed").not().isEmpty(),
+        validateField,
+    ],
+    createUser
 );
 
 router.post(
-  "/",
-  [
-    check("email", "Email needed").isEmail(),
-    check("password", "Password needed").not().isEmpty(),
-    validateField,
-  ],
-  login
+    "/", [
+        check("email", "Email needed").isEmail(),
+        check("password", "Password needed").not().isEmpty(),
+        validateField,
+    ],
+    login
 );
 
 // Validate Token
