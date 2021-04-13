@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const { Console } = require("console");
 require("dotenv").config();
 
 // DB config
@@ -26,9 +25,10 @@ app.use(express.static(publicPath));
 app.use("/api/login", require("./routes/auth"));
 app.use("/api/users/", require("./routes/users"));
 app.use("/api/messages/", require("./routes/messages"));
+app.use("/api/uploads/", require("./routes/uploads"));
 
 // Config
 server.listen(process.env.PORT, (err) => {
-  if (err) throw new Error(error);
-  console.log("Servidor corriendo en puerto:", process.env.PORT);
+    if (err) throw new Error(error);
+    console.log("Servidor corriendo en puerto:", process.env.PORT);
 });
